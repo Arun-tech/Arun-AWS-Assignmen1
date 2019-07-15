@@ -1,0 +1,32 @@
+1. Create a SNS topic "arun-trial"
+
+2. Created a subscription by adding a phone number.
+
+3. A lambda function was created. Following code was written in it.
+
+import json
+
+import boto3
+
+
+
+def lambda_handler(event, context):
+
+  
+    # Parse the JSON message
+ 
+    eventText = json.dumps(event)
+
+  
+    # Create an SNS client
+
+     sns = boto3.client('sns')
+
+  
+    # Publish a message to the specified topic
+
+    response = sns.publish (
+TopicArn = 'arn:aws:sns:us-east-1:488599217855:arun-trial', Message = eventText
+)
+
+4. Above code was tested, and got the required result

@@ -1,0 +1,20 @@
+1. From the EC2 console we click launch an instance option. 
+
+2. Choose Ubuntu Server 18.04 form the default AMIs available.
+
+3. Choose t2.micro instance
+
+4. Choose your Network
+
+5. Add your storage for the same and tags
+
+6. While configuring security group, add a rule that allows connection through HTTP only from your IP address
+
+7. Launch your instance
+
+8. Using SSH login into the Ec2 instance.
+
+9. After logging into the instance, install apache server using the following commands
+	
+10. Now create a new EFS from the EFS service and copy the EFS ID (my_EFS_id).
+

@@ -1,0 +1,67 @@
+TO create table "Games" :-
+
+
+import boto3
+dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+ 
+mytable = dynamodb.create_table(
+TableName= 'Games',
+KeySchema=[
+{'AttributeName': 'gname',
+'KeyType': 'HASH'},
+
+{'AttributeName': 'gid',
+'KeyType': 'RANGE'}],
+
+
+AttributeDefinitions=
+[{'AttributeName': 'gid',
+ 'AttributeType': 'Number'},
+
+{'AttributeName': 'gname',
+'AttributeType': 'S'}
+
+{'AttributeName': 'Publisher',
+'AttributeType': 'S'}
+
+{'AttributeName': 'rating',
+'AttributeType': 'Number'}
+
+{'AttributeName': 'release_date',
+'AttributeType': 'S'}
+
+{'AttributeName': 'genre',
+'AttributeType': 'S'}
+
+],
+
+ProvisionedThroughput={
+'ReadCapacityUnits': 5,
+'WriteCapacityUnits': 5}
+)
+
+
+To Insert into the table
+
+mytable.put_item(
+    Item={
+        'gid': 1,
+        'gname': 'Swimming',
+        'Publisher': 'Parth',
+        'rating': '8',
+        'release_date': '23-04-2010',
+        'genres': ['Action' , 'Drama']
+    }
+)
+mytable.put_item(
+    Item={
+        'gid': 2,
+        'gname': 'Badminton',
+        'Publisher': 'Nikhil',
+        'rating': '7',
+        'release_date': '12-6-2005',
+        'genres': ['Romance' , 'Emotional']
+    }
+)
+
+

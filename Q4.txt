@@ -1,0 +1,16 @@
+1.Create a lambda function. Add the following code in it:
+
+import json
+
+def lambda_handler(event, context):
+    # TODO implement
+    username=event['username']
+    return username
+
+2. Add API Gateway as the trigger to the lambda function.
+
+3. Configure the API Gateway
+
+4. Open lambda URL and added '?name=spandana' to the URL
+
+5. Result will be displayed on the screen

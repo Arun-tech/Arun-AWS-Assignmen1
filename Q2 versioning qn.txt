@@ -1,0 +1,12 @@
+Following is the code to obtain the different versions of an object.
+
+import boto3
+
+bucket = 'bucket name'
+key = 'key'
+s3 = boto3.resource('s3')
+versions = s3.Bucket(bucket).object_versions.filter(Prefix=key)
+
+for version in versions:
+    obj = version.get()
+    print(obj.get('VersionId'), obj.get('ContentLength'), obj.get('LastModified'))
